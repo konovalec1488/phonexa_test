@@ -5,5 +5,5 @@
     <div id="res_phone"></div>
     <input type="email" name="mail" value="qwerty@fuck.com" placeholder="Your email" /><br>
     <div id="res_mail"></div>
-    <input type="button" id="btn3" value="SEND" />
+    <input type="submit" id="btn3" value="SEND" />
 </form>

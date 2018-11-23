@@ -24,11 +24,11 @@ $(document).ready(function() {
                 setTimeout(function() {
                     $('#post_success').text('');
                 }, 1500);
+                task1Res(result.name, result.surname, result.age, result.license);
+
             }
         });
         return false;
     });
-    
 });
-
 //завантаження моделей авто

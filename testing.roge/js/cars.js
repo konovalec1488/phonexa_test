@@ -36,12 +36,12 @@ $(document).ready(function() {
             $('#year').html('<option value="">Select year</option>');
         }
     });
-
-   $('#btn2').click(function(){
-         $('.task2').hide('slow');
-         $('.task3').show('slow');
+    $('#btn2').click(function() {
+        var mark_res = $("#mark :selected").text();
+        var model_res = $("#model :selected").text();
+        var year_res = $("#year :selected").text();
+        task2Res(mark_res,model_res,year_res);
+        $('.task2').hide('slow');
+        $('.task3').show('slow');
     });
-
-
 });
-
