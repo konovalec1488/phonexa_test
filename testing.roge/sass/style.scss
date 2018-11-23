@@ -1,0 +1,108 @@
+$url:'../img/';
+$col_r:#dc3545;
+$col_gr:#28a745;
+$col_bl:#00acee;
+$col_w:white;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+header {
+    padding: 15px 0px;
+    background: $col_bl;
+    h1 {
+        color: $col_w;
+        font-size: 2.8rem;
+    }
+    .img_car {
+        background: url($url+'eleanor.png') center center no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: auto;
+    }
+    .img_insurance {
+        background: url($url+'auto-insurance.png') center center no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: auto;
+    }
+}
+body {
+    background: url($url+'carbon_bg.jpg')center center;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+}
+.task1, .task2, .task3 {
+    .table_white {
+        background: #ccc;
+        border: 5px solid $col_bl;
+        border-radius: 25px;
+        padding: 20px 25px;
+    }
+    .is-invalid {
+        border: 2px solid $col_r;
+    }
+    .is-valid {
+        border: 2px solid $col_gr;
+    }
+    .form-control {
+        font-weight: 600;
+    }
+    button {
+        margin: 20px 0px 10px 0px;
+    }
+}
+.task1 {
+    margin: 100px auto;
+}
+.task2 {
+    margin: 80px auto;
+    display: none;
+}
+.task3 {
+    margin: 80px auto;
+   display: none;
+}
+#post_success {
+    margin: 100px auto;
+    color: $col_w;
+    display: none;
+    .table_green {
+        background: #28a7457d;
+        border: 5px solid $col_gr;
+        border-radius: 25px;
+        padding: 20px 25px;
+    }
+}
+footer {
+    position: fixed;
+    height: 30px;
+    bottom: 0;
+    width: 100%;
+    p {
+        margin-bottom: 0;
+        font-size: 0.8rem;
+        font-weight: 500;
+        font-style: italic;
+    }
+    .company {
+        color: $col_w;
+        span {
+            color: $col_bl;
+            text-transform: uppercase;
+        }
+    }
+    .author {
+        color: $col_w;
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: $col_bl;
+        }
+    }
+}
+@import 'task1';
+@import 'task2';
+@import 'task3';

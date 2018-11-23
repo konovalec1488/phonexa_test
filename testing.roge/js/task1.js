@@ -4,31 +4,63 @@ $(document).ready(function() {
         $.post('../template-parts/post.php', $("#post_form1").serialize(), function(response) {
             result = $.parseJSON(response);
             //очистка форм від помилок
-            $('#res_name').text('');
-            $('#res_surname').text('');
-            $('#res_age').text('');
-            $('#res_lic').text('');
+            cleanForms();
             //перевірка на помилку у формі
             if (result.err_n != 0) {
-                $('#res_name').html(result.name);
+                $('.res_name').text(result.name);
+                $('.res_name').css('color', '#dc3545');
+                $('[name="name"]').addClass("is-invalid");
             } else if (result.err_s != 0) {
-                $('#res_surname').html(result.surname);
+                $('[name="name"]').addClass("is-valid");
+                $('.res_surname').text(result.surname);
+                $('.res_surname').css('color', '#dc3545');
+                $('[name="surname"]').addClass("is-invalid");
             } else if (result.err_a != 0) {
-                $('#res_age').html(result.age);
+                $('[name="name"]').addClass("is-valid");
+                $('[name="surname"]').addClass("is-valid");
+                $('.res_age').text(result.age);
+                $('.res_age').css('color', '#dc3545');
+                $('[name="age"]').addClass("is-invalid");
             } else if (result.err_l != 0) {
-                $('#res_lic').html(result.license);
+                $('[name="name"]').addClass("is-valid");
+                $('[name="surname"]').addClass("is-valid");
+                $('[name="age"]').addClass("is-valid");
+                $('.res_lic').text(result.license);
+                $('.res_lic').css('color', '#dc3545');
+                $('[name="license"]').addClass("is-invalid");
             } else {
+                formValid();
                 $('.task1').hide('slow');
-                $('#post_success').text('OK');
-                $('.task2').show('slow');
-                setTimeout(function() {
-                    $('#post_success').text('');
-                }, 1500);
                 task1Res(result.name, result.surname, result.age, result.license);
-
+                $('.task2').show('slow');
             }
         });
         return false;
     });
 });
-//завантаження моделей авто
+
+function cleanForms() {
+    //name
+    $('.res_name').text('Please use only A-Z characters');
+    $('.res_name').css('color', '#212529');
+    $('[name="name"]').removeClass("is-invalid");
+    //surname
+    $('.res_surname').text('Please use only A-Z characters');
+    $('.res_surname').css('color', '#212529');
+    $('[name="surname"]').removeClass("is-invalid");
+    //age
+    $('.res_age').text('Age from 18 to 100');
+    $('.res_age').css('color', '#212529');
+    $('[name="age"]').removeClass("is-invalid");
+    //lic
+    $('.res_lic').text('Please use only A-Z or 0-9 characters');
+    $('.res_lic').css('color', '#212529');
+    $('[name="license"]').removeClass("is-invalid");
+}
+
+function formValid() {
+    $('[name="name"]').addClass("is-valid");
+    $('[name="surname"]').addClass("is-valid");
+    $('[name="age"]').addClass("is-valid");
+    $('[name="license"]').addClass("is-valid");
+}

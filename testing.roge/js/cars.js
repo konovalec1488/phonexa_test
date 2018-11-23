@@ -37,11 +37,22 @@ $(document).ready(function() {
         }
     });
     $('#btn2').click(function() {
-        var mark_res = $("#mark :selected").text();
-        var model_res = $("#model :selected").text();
-        var year_res = $("#year :selected").text();
-        task2Res(mark_res,model_res,year_res);
-        $('.task2').hide('slow');
-        $('.task3').show('slow');
+        var check_form1 = $("#mark :selected").val();
+        var check_form2 = $("#model :selected").val();
+        var check_form3 = $("#year :selected").val();
+        if (check_form1 == '') {
+            $('#attention').text('Fill the field Mark');
+        } else if (check_form2 == '') {
+            $('#attention').text('Fill the field Model');
+        } else if (check_form3 == '') {
+            $('#attention').text('Fill the field Year');
+        } else {
+            var mark_res = $("#mark :selected").text();
+            var model_res = $("#model :selected").text();
+            var year_res = $("#year :selected").text();
+            task2Res(mark_res, model_res, year_res);
+            $('.task2').hide('slow');
+            $('.task3').show('slow');
+        }
     });
 });
