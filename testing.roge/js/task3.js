@@ -24,7 +24,7 @@ $('#post_form3').submit(function() {
         } else {
             formValid2();
             $('.task3').hide('slow');
-            $('.success_text').text('Thank You Message');
+            $('.success_text').text('Thank You for the message');
             $('#post_success').show('slow');
             printRes();
             console.log(res.city);
